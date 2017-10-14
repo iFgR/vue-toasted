@@ -3,13 +3,17 @@ var webpack = require('webpack')
 var autoprefixer = require('autoprefixer')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 module.exports = {
 	entry: {
 		'vue-toasted' : './src/index.js',
 		'vue-toasted.min' : './src/index.js'
 	},
 	output: {
-		path: './dist',
+		path: resolve('dist'),
 		publicPath: '/dist/',
 		filename: '[name].js',
 		libraryTarget: 'umd'

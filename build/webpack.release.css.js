@@ -4,12 +4,16 @@ var  ExtractTextPlugin =  require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 module.exports = {
 	entry: {
 		'vue-toasted.min' : './src/sass/toast.scss'
 	},
 	output: {
-		path: './dist',
+		path: resolve('dist'),
 		publicPath: '/dist/',
 		filename: '[name].css',
 		libraryTarget: 'umd'

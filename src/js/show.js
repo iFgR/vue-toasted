@@ -86,7 +86,6 @@ const createToast = function (html, options) {
 
 	// Create toast
 	let toast = document.createElement('div');
-	toast.classList.add('toasted');
 
 	// set unique identifier
 	toast.hash = uuid.generate();
@@ -95,6 +94,8 @@ const createToast = function (html, options) {
 		options.className.forEach((className) => {
 			toast.classList.add(className);
 		});
+	} else {
+		toast.classList.add('toasted');
 	}
 
 	// add material icon if available
@@ -125,7 +126,7 @@ const createToast = function (html, options) {
 	}
 	else {
 		// Insert as text;
-		toast.innerHTML = html;
+		toast.innerHTML = `<span class="toast-caption">${html}</span>`;
 	}
 
 	if (options.closeOnSwipe) {
